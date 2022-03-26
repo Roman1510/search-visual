@@ -3,6 +3,8 @@ import './BoardStyle.css'
 
 const Board = ({ size }) => {
   const [positions, setPositions] = useState([])
+  const [drawAvailable, setDrawAvailable] = useState(false)
+
   const handleDraw = (idx) => {
     console.log(idx)
   }
@@ -20,8 +22,17 @@ const Board = ({ size }) => {
           <div
             className="cell"
             key={_i}
-            onMouseEnter={() => {
+            onMouseDown={() => {
+              setDrawAvailable(true)
               handleDraw(_i)
+            }}
+            onMouseUp={() => {
+              setDrawAvailable(false)
+            }}
+            onMouseEnter={() => {
+              if (drawAvailable) {
+                handleDraw(_i)
+              }
             }}
           ></div>
         )
