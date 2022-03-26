@@ -4,7 +4,7 @@ import './AppStyle.css'
 function App() {
   return (
     <div className="app">
-      <Board size={600} />
+      <Board size={300} />
     </div>
   )
 }

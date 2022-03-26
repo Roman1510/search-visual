@@ -1,17 +1,17 @@
-.score {
-  font-family: verdana;
-  font-size: 2em;
-  position: relative;
-  color: #fff;
-}
-canvas {
-  border: 1px solid cyan;
-  background-color: antiquewhite;
-  display: block;
-  position: absolute;
+.board {
   margin: auto;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+  border: 1px solid cyan;
+  background-color: antiquewhite;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+}
+.cell {
+  width: 18px;
+  height: 18px;
+  border: 1px solid grey;
 }
