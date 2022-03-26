@@ -1,14 +1,8 @@
 import React from 'react'
-import Cell from '../Cell/Cell'
+import './BoardStyle.css'
 
 const Board = ({ size }) => {
-  return (
-    <div>
-      {[...Array(size)].map((e, i) => (
-        <Cell key={i} />
-      ))}
-    </div>
-  )
+  return <canvas id="canvas" height={size + 'px'} width={size + 'px'}></canvas>
 }
 
 export default Board

@@ -1,0 +1,17 @@
+.score {
+  font-family: verdana;
+  font-size: 2em;
+  position: relative;
+  color: #fff;
+}
+canvas {
+  border: 1px solid cyan;
+  background-color: antiquewhite;
+  display: block;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
