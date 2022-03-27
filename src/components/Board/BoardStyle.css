@@ -10,6 +10,9 @@
   flex-wrap: wrap;
   position: absolute;
 }
+.is-chosen {
+  background-color: blueviolet;
+}
 .cell {
   width: 18px;
   height: 18px;

@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './BoardStyle.css'
+import { generateBoard } from '../../helpers/generateBoard'
 
 const Board = ({ size }) => {
-  const [positions, setPositions] = useState([])
   const [drawAvailable, setDrawAvailable] = useState(false)
+  const [board, setBoard] = useState([])
 
+  useEffect(() => {
+    setBoard(generateBoard(size))
+  }, [])
+
+  window.test = () => {
+    console.log(board)
+  }
   const handleDraw = (idx) => {
-    console.log(idx)
+    setBoard((prev) => {
+      return prev.map((e, i) => {
+        if (idx === i) {
+          return { index: e.index, isActive: !e.isActive }
+        }
+        return e
+      })
+    })
   }
   return (
     <div
@@ -17,21 +32,21 @@ const Board = ({ size }) => {
         flexBasis: `${size}px`,
       }}
     >
-      {[...Array((size * size) / 400)].map((_e, _i) => {
+      {board.map((e, i) => {
         return (
           <div
-            className="cell"
-            key={_i}
+            className={`cell ${e.isActive ? 'is-chosen' : ''}`}
+            key={i + e}
             onMouseDown={() => {
               setDrawAvailable(true)
-              handleDraw(_i)
+              handleDraw(i)
             }}
             onMouseUp={() => {
               setDrawAvailable(false)
             }}
             onMouseEnter={() => {
               if (drawAvailable) {
-                handleDraw(_i)
+                handleDraw(i)
               }
             }}
           ></div>
