@@ -10,14 +10,11 @@ const Board = ({ size }) => {
     setBoard(generateBoard(size))
   }, [])
 
-  window.test = () => {
-    console.log(board)
-  }
   const handleDraw = (idx) => {
     setBoard((prev) => {
       return prev.map((e, i) => {
         if (idx === i) {
-          return { index: e.index, isActive: !e.isActive }
+          return { index: e.index, isActive: true }
         }
         return e
       })
@@ -30,6 +27,9 @@ const Board = ({ size }) => {
         height: `${size}px`,
         width: `${size}px`,
         flexBasis: `${size}px`,
+      }}
+      onMouseLeave={(e) => {
+        setDrawAvailable(false)
       }}
     >
       {board.map((e, i) => {
